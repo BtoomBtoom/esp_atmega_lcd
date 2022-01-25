@@ -545,26 +545,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1aa4
+.debug_info     0x00000000     0x1aa1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4      0x86c lcd.o
  .debug_info    0x00000e60      0x121 usart.o
- .debug_info    0x00000f81      0xb23 main.o
+ .debug_info    0x00000f81      0xb20 main.o
 
-.debug_abbrev   0x00000000      0xa9c
+.debug_abbrev   0x00000000      0xa8b
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2      0x1b6 lcd.o
  .debug_abbrev  0x00000758       0xd3 usart.o
- .debug_abbrev  0x0000082b      0x271 main.o
+ .debug_abbrev  0x0000082b      0x260 main.o
 
-.debug_line     0x00000000      0xaa1
+.debug_line     0x00000000      0xaad
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000134      0x35a lcd.o
  .debug_line    0x0000048e      0x126 usart.o
- .debug_line    0x000005b4      0x4ed main.o
+ .debug_line    0x000005b4      0x4f9 main.o
 
 .debug_frame    0x00000000      0x168
  *(.debug_frame)
@@ -572,15 +572,15 @@ END GROUP
  .debug_frame   0x00000098       0x68 usart.o
  .debug_frame   0x00000100       0x68 main.o
 
-.debug_str      0x00000000      0x6a2
+.debug_str      0x00000000      0x665
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0x1f7 lcd.o
                                 0x230 (size before relaxing)
  .debug_str     0x000003ff       0x4a usart.o
                                 0x1bf (size before relaxing)
- .debug_str     0x00000449      0x259 main.o
-                                0x462 (size before relaxing)
+ .debug_str     0x00000449      0x21c main.o
+                                0x425 (size before relaxing)
 
 .debug_loc      0x00000000     0x1455
  *(.debug_loc)

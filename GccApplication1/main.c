@@ -68,8 +68,7 @@ int main(){
 
 	char a1[50],a2[50]; // de luu cac string "re" va "ty"
 	lcd_init();
-	USART_Init(MYUBRR);  // thêm cái MYUBRR tính ? trên kia vào
-	//{"ID":"EC:FA:BC:5F:84:A9","Temperature":27.3,"Humidity":83}
+	USART_Init(MYUBRR);  
 	sei();
 	uart_interrupt_init();  // init pin change interrupt 7 and 8, RX complete interrupt
 	
@@ -82,13 +81,6 @@ int main(){
 	
 	
 	
-	
-	
-	////old code
-	//real_time_data_temp=data_temp_1;    //luu dia chi cua data_temp_1 vao real_time
-	//real_time_data_hum=data_hum_1;      //luu dia chi cua data_hum_1 vao real_time
-	//real_time_ID=ID_1;
-	////new code
 	
 	
 	
@@ -127,21 +119,15 @@ int main(){
 					{
 					   int k=0;
 					   int j=0;
-					   //lcd_clear();
-					   //printf("Nhap day can xet: \n");
-					   //scanf("%s",luutru);
-					   //ReadStringData(luu_tru);
+					 
 					   strcpy(a1,strstr(luu_tru,"re"));
 					   strcpy(a2,strstr(luu_tru,"ty"));
 					   temp_1=(a1[4]-'0')*10+(a1[5]-'0');
-					   //printf("%d",temp);
 					   hum_1=(a2[4]-'0')*10+(a2[5]-'0');
-					   //printf("%d",hum);
-					   du_lieu_temp_1[bien_dem_1]=temp_1;du_lieu_hum_1[bien_dem_1]=hum_1;
-					   //printf("%d",dulieuhum[i]);
+					   du_lieu_temp_1[bien_dem_1]=temp_1;
+					   du_lieu_hum_1[bien_dem_1]=hum_1;
 			   
-			   
-					   //int j=0;
+
 					   do
 					   {
 						   temp_tb_1+=du_lieu_temp_1[j];
@@ -150,26 +136,16 @@ int main(){
 					   }while(du_lieu_temp_1[j]!='\0');
 					   temp_tb_1/=j;
 					   itoa(temp_tb_1,data_temp_1,10);//kiem tra lai xem ky tu cuoi cua data_temp_1 co phai la null chua thi moi la string dc
-					   //printf("%s",data1);
-					   //printf("%s","   ");
-					   //int k=0;
-					   //printf("%d",k);
 			
 					   do
 					   {
 						   hum_tb_1+=du_lieu_hum_1[k];
-						   //printf("%d",humtb);
 
 						   k++;
 						   if(k==50)break;
 					   }while(du_lieu_hum_1[k]!='\0');
 					   hum_tb_1/=k;
 					   itoa(hum_tb_1,data_hum_1,10);
-					   //printf("%s\n",data2);
-					   /*lcd_clear();
-					   lcd_print(data_temp_1);
-					   lcd_print("      ");
-					   lcd_print(data_hum_1);*/
 			   
 					   temp_tb_1=0; //reset lai bien tem_tb
 					   hum_tb_1=0;   // reset lai hum_tb
@@ -182,22 +158,14 @@ int main(){
 				{
 					   int k=0;
 					   int j=0;
-					   //lcd_clear();
-					   //printf("Nhap day can xet: \n");
-					   //scanf("%s",luutru);
-					   //ReadStringData(luu_tru);
 					   strcpy(a1,strstr(luu_tru,"re"));
 					   strcpy(a2,strstr(luu_tru,"ty"));
 					   temp_2=(a1[4]-'0')*10+(a1[5]-'0');
-					   //printf("%d",temp);
 					   hum_2=(a2[4]-'0')*10+(a2[5]-'0');
-					   //printf("%d",hum);
 					   du_lieu_temp_2[bien_dem_2]=temp_2;du_lieu_hum_2[bien_dem_2]=hum_2;
-					   //printf("%d",dulieuhum[i]);
 			   
 			   
 			   
-					   //int j=0;
 					   do
 					   {
 						   temp_tb_2+=du_lieu_temp_2[j];
@@ -206,51 +174,34 @@ int main(){
 					   }while(du_lieu_temp_2[j]!='\0');
 					   temp_tb_2/=j;
 					   itoa(temp_tb_2,data_temp_2,10);
-					   //printf("%s",data1);
-					   //printf("%s","   ");
-					   //int k=0;
-					   //printf("%d",k);
 					   do
 					   {
 						   hum_tb_2+=du_lieu_hum_2[k];
-						   //printf("%d",humtb);
 
 						   k++;
 						   if(k==50)break;
 					   }while(du_lieu_hum_2[k]!='\0');
 					   hum_tb_2/=k;
 					   itoa(hum_tb_2,data_hum_2,10);
-					   /*lcd_clear();
-					   lcd_print(data_temp_1);
-					   lcd_print("      ");
-					   lcd_print(data_hum_1);*/
 			   
 					   temp_tb_2=0; //reset lai bien tem_tb
 					   hum_tb_2=0;   // reset lai hum_tb
 					   bien_dem_2++;
 					   if(bien_dem_2==50){bien_dem_2=0;}
-				} // truong hop 2
-				
+				}
 				
 				if(strcmp(luu_tru_ID,ID_3) == 0)// truong hop neu la ID_3
 					{
 					   int k=0;
 					   int j=0;
-					   //lcd_clear();
-					   //printf("Nhap day can xet: \n");
-					   //scanf("%s",luutru);
-					   //ReadStringData(luu_tru);
 					   strcpy(a1,strstr(luu_tru,"re"));
 					   strcpy(a2,strstr(luu_tru,"ty"));
 					   temp_3=(a1[4]-'0')*10+(a1[5]-'0');
-					   //printf("%d",temp);
 					   hum_3=(a2[4]-'0')*10+(a2[5]-'0');
-					   //printf("%d",hum);
-					   du_lieu_temp_3[bien_dem_3]=temp_3;du_lieu_hum_3[bien_dem_3]=hum_3;
-					   //printf("%d",dulieuhum[i]);
+					   du_lieu_temp_3[bien_dem_3]=temp_3;
+					   du_lieu_hum_3[bien_dem_3]=hum_3;
 			   
 			   
-					   //int j=0;
 					   do
 					   {
 						   temp_tb_3+=du_lieu_temp_3[j];
@@ -259,26 +210,16 @@ int main(){
 					   }while(du_lieu_temp_3[j]!='\0');
 					   temp_tb_3/=j;
 					   itoa(temp_tb_3,data_temp_3,10);//kiem tra lai xem ky tu cuoi cua data_temp_1 co phai la null chua thi moi la string dc
-					   //printf("%s",data1);
-					   //printf("%s","   ");
-					   //int k=0;
-					   //printf("%d",k);
 			
 					   do
 					   {
 						   hum_tb_3+=du_lieu_hum_3[k];
-						   //printf("%d",humtb);
 
 						   k++;
 						   if(k==50)break;
 					   }while(du_lieu_hum_3[k]!='\0');
 					   hum_tb_3/=k;
 					   itoa(hum_tb_3,data_hum_3,10);
-					   //printf("%s\n",data2);
-					   /*lcd_clear();
-					   lcd_print(data_temp_1);
-					   lcd_print("      ");
-					   lcd_print(data_hum_1);*/
 			   
 					   temp_tb_3=0; //reset lai bien tem_tb
 					   hum_tb_3=0;   // reset lai hum_tb
@@ -299,31 +240,6 @@ int main(){
 		}
 		
 		
-		////old code
-		//if((PINC&(1<<PINC1))==0)
-		//{
-			//real_time_data_temp=data_temp_1;    //luu dia chi cua data_temp_1 vao real_time
-			//real_time_data_hum=data_hum_1;      //luu dia chi cua data_hum_1 vao real_time
-			//real_time_ID=ID_1;
-		//}
-		//
-		//
-		//if((PINC&(1<<PINC2))==0)
-		//{
-			//real_time_data_temp=data_temp_2;    //luu dia chi cua data_temp_1 vao real_time
-			//real_time_data_hum=data_hum_2;      //luu dia chi cua data_hum_1 vao real_time
-			//real_time_ID=ID_2;
-		//}
-		//
-		//if((PINC&(1<<PINC3))==0)
-		//{
-			//real_time_data_temp=data_temp_3;    //luu dia chi cua data_temp_1 vao real_time
-			//real_time_data_hum=data_hum_3;      //luu dia chi cua data_hum_1 vao real_time
-			//real_time_ID=ID_3;
-		//}
-		////end code
-		
-		//new code
 		button_1 = PINC&(1<<PINC1);
 		button_2 = PINC&(1<<PINC2);
 		
@@ -358,7 +274,6 @@ int main(){
 			}
 			button_2_before = button_2;
 		}
-		//end code
 		
 		
 		
